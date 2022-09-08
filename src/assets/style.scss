@@ -1,0 +1,20 @@
+@import "./scss/common/button";
+@import "./scss/common/forms";
+@import "./scss/common/spacer.scss";
+
+@import "./scss/pages/page";
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(60, 60, 60);
+}
+
+a {
+  text-decoration: none;
+}

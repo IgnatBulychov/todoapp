@@ -1,0 +1,12 @@
+input,
+textarea {
+  border: none;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}

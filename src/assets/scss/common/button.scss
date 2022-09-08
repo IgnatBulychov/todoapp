@@ -1,0 +1,25 @@
+.btn {
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  white-space: nowrap;
+}
+
+@each $type, $background in (primary, #2196f3), (secondary, #607d8b),
+  (success, #4caf50), (warning, #ff9800), (error, #f44336)
+{
+  .btn-#{$type} {
+    background: $background;
+    &:hover {
+      background: lighten($background, 5);
+    }
+    &:disabled {
+      pointer-events: none;
+      background: #607d8b;
+    }
+  }
+}
