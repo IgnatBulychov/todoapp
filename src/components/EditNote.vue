@@ -6,14 +6,15 @@ import { useNote } from "../composable/note";
 const confirm = inject("confirm");
 const router = useRouter();
 
-// импортируем необходимые данные для работы с записью
+// импортируем необходимые данные и функции для работы с записью
 const {
   noteState,
   input,
   editTitleMode,
   currentEditingItem,
   currentEditingNote,
-  handleSaveNote,
+  addNote,
+  updateNote,
   deleteNote,
   addItem,
   removeItem,
@@ -47,6 +48,12 @@ const handleBack = async () => {
   if (isConfirmed) {
     router.push("/");
   }
+};
+
+// обработка сохранения заметки
+const handleSaveNote = () => {
+  currentEditingNote.value !== null ? updateNote() : addNote();
+  router.push("/");
 };
 </script>
 

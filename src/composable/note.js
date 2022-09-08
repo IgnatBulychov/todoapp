@@ -1,4 +1,4 @@
-import { ref, reactive, inject } from "vue";
+import { ref, reactive } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
 import { useHistory } from "../composable/history";
@@ -12,7 +12,6 @@ export function useNote() {
 
   const store = useStore();
   const route = useRoute();
-  const router = useRouter();
 
   // получаем все записи
   const notes = store.state.notes;
@@ -31,7 +30,7 @@ export function useNote() {
     noteState.note = deepCopy(store.state.notes[route.query.key]);
   }
 
-  // инициализируем хут отвечающий за хранение действий пользовтеля, передаем туда текущую заметку
+  // инициализируем хук отвечающий за хранение действий пользовтеля, передаем туда текущую заметку
   const { history, isChanged, undo, redo, commit } = useHistory(noteState);
 
   // функции работы с записями в заметке
@@ -67,16 +66,12 @@ export function useNote() {
     store.dispatch("deleteNote", key);
   };
 
-  // функции обработки кнопок формы редактирования заметки
-  const handleSaveNote = () => {
-    currentEditingNote.value !== null ? updateNote() : addNote();
-    router.push("/");
-  };
-
   return {
     noteState,
     notes,
-    handleSaveNote,
+    addNote,
+    updateNote,
+    deleteNote,
     currentEditingNote,
     deleteNote,
     input,
