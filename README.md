@@ -2,7 +2,9 @@
 
 ### Live Demo:
 
-### Установка
+https://vue-todo-list-app.netlify.app/
+
+### Установка Frontend
 
 - npm install
 - npm run build
